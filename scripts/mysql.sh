@@ -69,11 +69,11 @@ addrepo () {
 echo "------ Script for $APP_NAME..."
 
 echo "Configuring..."
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password "$root
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password "$root
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password "$root_pass
+sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password "$root_pass
 install mysql-server
 echo "Creating database $db with user $user and pass $pass..."
 mysql -u$root_user -p$root_pass -e "CREATE DATABASE "$db > /dev/null 2>&1
-mysql -u$root_user -p$root -e "grant all privileges on "$db".* to '"$user"'@'localhost' identified by '"$pass"'" > /dev/null 2>&1
+mysql -u$root_user -p$root_pass -e "grant all privileges on "$db".* to '"$user"'@'localhost' identified by '"$pass"'" > /dev/null 2>&1
 
 echo "------ Script for $APP_NAME... Done!"

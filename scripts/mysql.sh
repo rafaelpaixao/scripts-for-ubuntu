@@ -29,19 +29,19 @@ if [ -z ${user+x} ]; then
 fi
 
 if [ -z ${pass+x} ]; then
-    user="root"
+    pass="root"
 fi
 
 if [ -z ${root_user+x} ]; then
-    user="root"
+    root_user="root"
 fi
 
 if [ -z ${root_pass+x} ]; then
-    user="root"
+    root_pass="root"
 fi
 
 if [ -z ${db+x} ]; then
-    user="example"
+    db="example"
 fi
 
 APP_NAME="MySQL Server"
